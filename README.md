@@ -19,7 +19,7 @@
 `BEM`  
 
 ### Посмотреть 
-+ https://sergeivaskin1991.github.io/mesto-react    
++ https://sergeivaskin1991.github.io/mesto_react    
 + Оригинальная версия проекта на чистом JS - https://github.com/sergeivaskin1991/my_project_11_mesto
 
 ### Разворачивание проекта
