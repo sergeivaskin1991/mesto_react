@@ -18,6 +18,9 @@ function AddPlacePopup(props) {
     event.preventDefault();
 
     props.onAddPlace({ name, link });
+    setLink('');
+    setName('');
+
   }
 
   return (
@@ -29,10 +32,10 @@ function AddPlacePopup(props) {
       name='card'
       children={
         <>
-          <input onChange={ handleChangeName } id="name" type="text" name="name" className="popup__input popup__input_type_name"
+          <input onChange={ handleChangeName } value={name}  id="name" type="text" name="name" className="popup__input popup__input_type_name"
                  placeholder="Название" required minLength="2" maxLength="30"/>
           <span id="name-error" className="error"/>
-          <input onChange={ handleChangeLink } id="link" type="url" name="link" className="popup__input popup__input_type_link-url"
+          <input onChange={ handleChangeLink } value={link} id="link" type="url" name="link" className="popup__input popup__input_type_link-url"
                  placeholder="Ссылка на картинку" required/>
           <span id="link-error" className="error"/>
           <button type="submit" className="button popup__button popup__button_add popup__button_valid">+</button>
