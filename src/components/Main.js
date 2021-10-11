@@ -2,6 +2,8 @@ import React from 'react';
 import Card from './Card';
 import { CurrentUserContext } from '../contexts/CurentUserContext';
 // import { SemipolarLoading } from 'react-loadingg';
+import MySelect from './MySelect';
+import { validate } from '@babel/types';
 function Main(props) {
   const currentUser = React.useContext(CurrentUserContext);
 
@@ -10,6 +12,12 @@ function Main(props) {
   //     <SemipolarLoading color="#fff" />
   //   )
   // }
+  const [selectedSort, setSelectedSort] = React.useState('');
+
+  const sortPosts = (sort) => {
+    setSelectedSort(sort);
+    //setPosts([[...posts].sort()])
+  }
 
   return (
     <>
@@ -21,7 +29,21 @@ function Main(props) {
             <h1 className="user-info__name">{ currentUser.name }</h1>
             <p className="user-info__job">{ currentUser.about }</p>
             <button className="user-info__edit" onClick={ props.onEditProfile }>Edit</button>
+            
+            <div style={{marginTop: "-40px"}}>
+              <MySelect 
+                value={selectedSort}
+                onChange={sortPosts}
+                defaultValue="Сортировка"
+                options={[
+                  {value: 'id', name: 'По лайкам'}, 
+                  {value: 'body', name: 'Все'}
+                ]}
+              />
+            </div>
+
           </div>
+          
           <button className="button user-info__button" onClick={ props.onAddPlace }>+</button>
         </div>
       </div>
